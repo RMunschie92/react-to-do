@@ -36,15 +36,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <ul>
-        { this.state.todos.map( (todo, index) =>
-          <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } toggleComplete={ () => this.toggleComplete(index) } />
-        )}
-      </ul>
-      <form onSubmit={ (e) => this.handleSubmit(e) }>
-        <input type="text" value={ this.state.newTodoDescription } onChange={ (e) => this.handleChange(e) } />
-        <input type="submit" />
-      </form>
+        <div className="container">
+          <h1>Things you gotta do!</h1>
+          <ul>
+            { this.state.todos.map( (todo, index) =>
+              <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } toggleComplete={ () => this.toggleComplete(index) } />
+            )}
+          </ul>
+          <form onSubmit={ (e) => this.handleSubmit(e) }>
+            <input type="text" placeholder="New task..." value={ this.state.newTodoDescription } onChange={ (e) => this.handleChange(e) } />
+            <input type="submit" />
+          </form>
+        </div>
       </div>
     );
   }
